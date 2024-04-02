@@ -44,7 +44,7 @@ INSTALLED_APPS = [
         'allauth', 
         'allauth.account', 
      # Local
-        'users.apps.UsersConfig',
+        #'users.apps.UsersConfig',
         'pages.apps.PagesConfig',
         'dons.apps.DonsConfig',
      
@@ -155,4 +155,4 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True 
 ACCOUNT_UNIQUE_EMAIL = True 
 
-AUTH_USER_MODEL = 'users.CustomUser'
+#AUTH_USER_MODEL = 'users.CustomUser'
