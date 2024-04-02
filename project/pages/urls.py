@@ -7,7 +7,7 @@ urlpatterns = [
     path('logout',views.logout, name='logout'),
     path('signup',views.signup, name='signup'),
     path('dashboard',views.dashboard, name='dashboard'),
-    path('association',views.association, name='association'),
+    path('association',views.association, name='account_association'),
 
     #path('about',views.about, name='about'),
 
