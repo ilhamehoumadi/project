@@ -12,17 +12,17 @@ def index(request):
     #template=loader.get_template('pages/index.html')
     #return HttpResponse( template.render )
 
-def register(request):
+def signup(request):
     
     form = CreateUserForm()
     if request.method =="POST":
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("login")
+            return redirect("index.html")
         
-    context = { 'registerform':form}
-    return render(request ,'account/register.html',context=context)
+    context = { 'signupform':form}
+    return render(request ,'account/signup.html',context=context)
 
 def login(request):
     form=LoginForm()
@@ -35,24 +35,33 @@ def login(request):
             user=authenticate(request,username=username,password=password)
             if user is not None:
                 login(request,user)
-                return redirect("dashboard")
+                return redirect("account/dashboard.html")
     context= { 'LoginForm':form}
     return render(request, 'account/login.html', context=context)
 def dashboard(request):
     return render(request ,'account/dashboard.html')
        
     
-def signup(request):
-    return render(request ,'account/signup.html')
+#def signup(request):
+ #   return render(request ,'account/signup.html')
 
 def association(request):
-    return render(request ,'account/association.html')
+    #return render(request ,'account/association.html')
+    form = CreateUserForm()
+    if request.method =="POST":
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("index.html")
+        
+    context = { 'signupform':form}
+    return render(request ,'account/signup.html',context=context)
     
 def logout(request):
     
     # Call Django's logout function
     django_logout(request)
-    return redirect("")
+    return redirect("/")
     #return render(request ,'account/logout.html')
     
 #def about(request):
